@@ -122,50 +122,57 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-
-class FirstWidget extends StatelessWidget {
+class FirstWidget extends StatefulWidget {
   const FirstWidget({super.key});
+
+  @override
+  State<FirstWidget> createState() => _FirstWidgetState();
+}
+
+class _FirstWidgetState extends State<FirstWidget> {
+  
+// Change colors function here TODO
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.amber),
+        appBar: AppBar(backgroundColor: Colors.amber, title: Text("First Widgets"),),
         body: Stack(
           alignment: Alignment.center,
           children: [
             Container(
-              margin: EdgeInsets.symmetric(vertical: 140, horizontal: 40),
+              margin: EdgeInsets.fromLTRB(20, 30, 20, 30),
               decoration: BoxDecoration(
                 color: Colors.deepOrangeAccent,
                 shape: BoxShape.rectangle,
               ),
               alignment: Alignment.center,
               padding: EdgeInsets.all(12),
-              child:             
-              Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ScrollViewRow(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      spacing: 18,
-                      children: [
-                        CircleAvatar(backgroundColor: Colors.blue),
-                        Icon(Icons.change_history, color: Colors.amber),
-                      ],
-                    ),
-                    Text(
-                      "TEXT",
-                      style: TextStyle(fontSize: 35, color: Colors.green),
-                    ),
-                  ],
-                ),
-                ScrollViewColumn(),
-              ],
-            ),
+                children: [
+                  Column(
+                    spacing: 8,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ScrollViewRow(),
+                      Row(
+                        spacing: 15,
+                        children: [
+                          CircleAvatar(backgroundColor: Colors.blue),
+                          Icon(Icons.change_history, color: Colors.amber),
+                        ],
+                      ),
+                      Text(
+                        "TEXT",
+                        style: TextStyle(fontSize: 35, color: Colors.green),
+                      ),
+                      ScrollViewColumn(),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -173,7 +180,6 @@ class FirstWidget extends StatelessWidget {
     );
   }
 }
-
 
 class ScrollViewRow extends StatefulWidget {
   const ScrollViewRow({super.key});
@@ -185,23 +191,22 @@ class ScrollViewRow extends StatefulWidget {
 class _ScrollViewRowState extends State<ScrollViewRow> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("SingleChildScrollViewRow"),),
-        body: SingleChildScrollView(
-          child: Row(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.blueAccent,
-              ),
-              Icon(Icons.favorite, color: Colors.redAccent,),
-              Icon(Icons.grade, color: Colors.amber,),
-              Icon(Icons.extension, color: Colors.deepPurple,),
-              Icon(Icons.nightlight_round, color: Colors.grey,),
-            ],
-          ),
+    return SizedBox(
+      width: 55,
+      height: 50,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: const [
+            Icon(Icons.opacity, color: Colors.blueAccent, size: 36),
+            Icon(Icons.favorite, color: Colors.redAccent, size: 36),
+            Icon(Icons.grade, color: Colors.amber, size: 36),
+            Icon(Icons.extension, color: Colors.deepPurple, size: 36),
+            Icon(Icons.nightlight_round, color: Colors.amberAccent, size: 36),
+            Icon(Icons.outlet, color: Colors.black, size: 36),
+          ],
         ),
-      )
+      ),
     );
   }
 }
@@ -216,23 +221,23 @@ class ScrollViewColumn extends StatefulWidget {
 class _ScrollViewColumnState extends State<ScrollViewColumn> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text("SingleChildScrollViewColumn"),),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: Colors.blueAccent,
-              ),
-              Icon(Icons.favorite, color: Colors.redAccent,),
-              Icon(Icons.grade, color: Colors.amber,),
-              Icon(Icons.extension, color: Colors.deepPurple,),
-              Icon(Icons.nightlight_round, color: Colors.grey,),
-            ],
-          ),
+    return SizedBox(
+      width: 80,
+      height: 55,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: const [
+            Text("Text 1", style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 22)),
+            Text("Text 2", style: TextStyle(color: Colors.lightGreenAccent, fontSize: 22)),
+            Text("Text 3", style: TextStyle(color: Colors.cyanAccent, fontSize: 22)),
+            Text("Text 4", style: TextStyle(color: Colors.tealAccent, fontSize: 22)),
+            Text("Text 5", style: TextStyle(color: Colors.greenAccent, fontSize: 22)),
+            Text("Text 6", style: TextStyle(color: Colors.yellowAccent, fontSize: 22)),
+            Text("Text 7", style: TextStyle(color: Colors.deepPurpleAccent, fontSize: 22)),
+          ],
         ),
-      )
+      ),
     );
   }
 }
