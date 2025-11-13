@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: FirstWidget(),
     );
   }
 }
@@ -121,3 +122,53 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+
+class FirstWidget extends StatelessWidget {
+  const FirstWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(backgroundColor: Colors.amber),
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 140, horizontal: 40),
+              decoration: BoxDecoration(
+                color: Colors.deepOrangeAccent,
+                shape: BoxShape.rectangle,
+              ),
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(12),
+              child:             
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      spacing: 18,
+                      children: [
+                        CircleAvatar(backgroundColor: Colors.blue),
+                        Icon(Icons.change_history, color: Colors.amber),
+                      ],
+                    ),
+                    Text(
+                      "TEXT",
+                      style: TextStyle(fontSize: 35, color: Colors.green),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+  }
+}
