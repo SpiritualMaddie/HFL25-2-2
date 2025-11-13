@@ -146,6 +146,7 @@ class FirstWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                ScrollViewRow(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -162,13 +163,76 @@ class FirstWidget extends StatelessWidget {
                     ),
                   ],
                 ),
+                ScrollViewColumn(),
               ],
             ),
             ),
-
           ],
         ),
       ),
+    );
+  }
+}
+
+
+class ScrollViewRow extends StatefulWidget {
+  const ScrollViewRow({super.key});
+
+  @override
+  State<ScrollViewRow> createState() => _ScrollViewRowState();
+}
+
+class _ScrollViewRowState extends State<ScrollViewRow> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("SingleChildScrollViewRow"),),
+        body: SingleChildScrollView(
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.blueAccent,
+              ),
+              Icon(Icons.favorite, color: Colors.redAccent,),
+              Icon(Icons.grade, color: Colors.amber,),
+              Icon(Icons.extension, color: Colors.deepPurple,),
+              Icon(Icons.nightlight_round, color: Colors.grey,),
+            ],
+          ),
+        ),
+      )
+    );
+  }
+}
+
+class ScrollViewColumn extends StatefulWidget {
+  const ScrollViewColumn({super.key});
+
+  @override
+  State<ScrollViewColumn> createState() => _ScrollViewColumnState();
+}
+
+class _ScrollViewColumnState extends State<ScrollViewColumn> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("SingleChildScrollViewColumn"),),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.blueAccent,
+              ),
+              Icon(Icons.favorite, color: Colors.redAccent,),
+              Icon(Icons.grade, color: Colors.amber,),
+              Icon(Icons.extension, color: Colors.deepPurple,),
+              Icon(Icons.nightlight_round, color: Colors.grey,),
+            ],
+          ),
+        ),
+      )
     );
   }
 }
